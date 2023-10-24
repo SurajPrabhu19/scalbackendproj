@@ -39,24 +39,21 @@ public class ProductController {
     }
 
     @GetMapping("{id}")
-    public Object getProductById(@PathVariable("id") Long id) throws NotFoundException {
-
-        return productService.getById(id);
-        // return "The Product has a Id: " + id;
+    public ResponseEntity<GenericProductDto> getProductById(@PathVariable("id") Long id) throws NotFoundException {
+        return new ResponseEntity<GenericProductDto>(productService.getProductById(id),
+                HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<GenericProductDto> deleteProductById(@PathVariable("id") Long id) throws NotFoundException {
-        // return productService.deleteProductById(id);
         return new ResponseEntity<GenericProductDto>(productService.deleteProductById(id),
                 HttpStatus.OK);
     }
 
     @PostMapping
-    public String createProduct(@RequestBody GenericProductDto productDto) {
-        // return "Create a new Product: " + UUID.randomUUID();
-        // return productService.createProduct(productDto);
-        return productDto.getTitle();
+    public ResponseEntity<GenericProductDto> createProduct(@RequestBody GenericProductDto productDto) throws Exception {
+        return new ResponseEntity<GenericProductDto>(productService.createProduct(productDto),
+                HttpStatus.OK);
     }
 
     @PutMapping("{id}")
@@ -69,7 +66,7 @@ public class ProductController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ExceptionDto> handleNotFoundException(NotFoundException notFoundException) {
         // System.out.println("Item Not found");
-        return new ResponseEntity(new ExceptionDto(HttpStatus.NOT_FOUND, notFoundException.getMessage()),
+        return new ResponseEntity<ExceptionDto>(new ExceptionDto(HttpStatus.NOT_FOUND, notFoundException.getMessage()),
                 HttpStatus.NOT_FOUND);
     }
 }

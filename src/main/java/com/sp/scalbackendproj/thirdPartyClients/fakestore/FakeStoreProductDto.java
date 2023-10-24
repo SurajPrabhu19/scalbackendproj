@@ -1,4 +1,4 @@
-package com.sp.scalbackendproj.dto;
+package com.sp.scalbackendproj.thirdPartyClients.fakestore;
 
 import lombok.Getter;
 import lombok.Setter;

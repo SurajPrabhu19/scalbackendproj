@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.sp.scalbackendproj.dto.FakeStoreProductDto;
 import com.sp.scalbackendproj.dto.GenericProductDto;
 import com.sp.scalbackendproj.service.contracts.IProductService;
+import com.sp.scalbackendproj.thirdPartyClients.fakestore.FakeStoreProductDto;
 
 @Service("productService") // this is the qualifier to distinguish various implm of ProductService
 public class ProductService implements IProductService {

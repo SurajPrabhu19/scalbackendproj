@@ -9,7 +9,7 @@ public interface IProductService {
 
     public Object getById(Long id);
 
-    public GenericProductDto getProductById(Long id) throws Exception;
+    public GenericProductDto getProductById(Long id) throws NotFoundException;
 
     public List<GenericProductDto> getAllProducts();
 
