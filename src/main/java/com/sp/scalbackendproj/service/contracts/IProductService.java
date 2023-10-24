@@ -6,7 +6,10 @@ import com.sp.scalbackendproj.dto.GenericProductDto;
 import com.sp.scalbackendproj.exception.NotFoundException;
 
 public interface IProductService {
-    public GenericProductDto getProductById(Long id);
+
+    public Object getById(Long id);
+
+    public GenericProductDto getProductById(Long id) throws Exception;
 
     public List<GenericProductDto> getAllProducts();
 

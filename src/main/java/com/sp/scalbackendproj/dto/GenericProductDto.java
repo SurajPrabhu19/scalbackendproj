@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@JsonIgnoreProperties({ "id", "rating" })
+@JsonIgnoreProperties({ "rating" })
 
 public class GenericProductDto {
     private Long id;

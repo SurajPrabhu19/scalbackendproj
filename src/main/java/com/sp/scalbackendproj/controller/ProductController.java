@@ -20,6 +20,7 @@ import com.sp.scalbackendproj.dto.ExceptionDto;
 import com.sp.scalbackendproj.dto.GenericProductDto;
 import com.sp.scalbackendproj.exception.NotFoundException;
 import com.sp.scalbackendproj.service.contracts.IProductService;
+import com.sp.scalbackendproj.service.implementations.FakeStoreProductService;
 
 @RestController
 @RequestMapping("/products")
@@ -27,7 +28,7 @@ public class ProductController {
 
     private IProductService productService;
 
-    public ProductController(@Qualifier("fakeStoreProductService") IProductService iProductService) {
+    public ProductController(@Qualifier("fakeStoreProductService") FakeStoreProductService iProductService) {
         super();
         this.productService = iProductService;
     }
@@ -38,9 +39,9 @@ public class ProductController {
     }
 
     @GetMapping("{id}")
-    public GenericProductDto getProductById(@PathVariable("id") Long id) throws NotFoundException {
+    public Object getProductById(@PathVariable("id") Long id) throws NotFoundException {
 
-        return productService.getProductById(id);
+        return productService.getById(id);
         // return "The Product has a Id: " + id;
     }
 

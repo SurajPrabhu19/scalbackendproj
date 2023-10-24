@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sp.scalbackendproj.dto.FakeStoreProductDto;
 import com.sp.scalbackendproj.dto.GenericProductDto;
 import com.sp.scalbackendproj.service.contracts.IProductService;
 
@@ -34,6 +35,11 @@ public class ProductService implements IProductService {
     public GenericProductDto deleteProductById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteProductById'");
+    }
+
+    @Override
+    public FakeStoreProductDto getById(Long id) {
+        throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
 }
